@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+      ),
+      home: ComidaPage(),
+    );
+  }
+}
+
+class ComidaPage extends StatelessWidget {
+  const ComidaPage({super.key});
+  final List<Map<String, dynamic>> comida = const [
+    {
+      "Nombre": "tacos",
+      "Icono": Icons.local_dining,
+      "Imagen":
+          "https://cdn.blog.paulinacocina.net/wp-content/uploads/2020/01/untitled-copy.jpg",
+    },
+    {
+      "Nombre": "Taquitos ",
+      "Icono": Icons.attractions_outlined,
+      "Imagen":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAI0jHmE-a2vOYHcG-MStP0VO3KanNcI2Jw&s",
+    },
+    {
+      "Nombre": "Tamales",
+      "Icono": Icons.add_a_photo,
+      "Imagen":
+          "https://content.skyscnr.com/m/2dcd7d0e6f086057/original/GettyImages-186142785.jpg?resize=1224%3Aauto",
+    },
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Comida")),
+      body: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(10.0),
+            width: 100.0,
+            child: Image.network(
+              "https://content.skyscnr.com/m/2dcd7d0e6f086057/original/GettyImages-186142785.jpg?resize=1224%3Aauto",
+            ),
+            //height: 48.0,
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: comida.length,
+              itemBuilder: (BuildContext context, int index) {
+                final elemento = comida[index];
+                return ListTile(
+                  leading: Icon(elemento["Icono"]),
+                  title: Text(comida[index]["Nombre"]),
+                  trailing: Image.network(comida[index]["Imagen"], width: 90
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
