@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ESTA ES LA CLASE QUE TE FALTABA Y POR ESO SALÍA EL ERROR
+// 
 class Calculadora extends StatefulWidget {
   const Calculadora({super.key});
 
@@ -47,7 +47,7 @@ class _CalculadoraState extends State<Calculadora> {
           final expression = Expression.parse(formula);
           final result = evaluator.eval(expression, {});
 
-          // Validación de errores: división por cero (Criterio de la tarea)
+          // Validación de errores: división por cero 
           if (result is num && (result.isInfinite || result.isNaN)) {
             display = 'Error: Div/0';
           } else {
@@ -99,7 +99,7 @@ class _CalculadoraState extends State<Calculadora> {
         // AppBar más chiquito en horizontal para ganar espacio
         toolbarHeight: MediaQuery.of(context).orientation == Orientation.landscape ? 35 : 56,
       ),
-      body: OrientationBuilder( // Criterio: Detección de orientación
+      body: OrientationBuilder( // Detección de orientación
         builder: (context, orientation) {
           bool esH = orientation == Orientation.landscape;
 
