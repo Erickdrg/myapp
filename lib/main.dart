@@ -155,7 +155,7 @@ class _CalculadoraState extends State<Calculadora> {
                       ]),
                       Row(children: [
                         buildButton("0", esH: esH),
-                        // Criterio: Botón con "span" (ocupa el espacio de 3 botones)
+                        // Botón con "span" (ocupa el espacio de 3 botones)
                         buildButton("=", color: Colors.orange, flex: 3, esH: esH),
                       ]),
                     ],
